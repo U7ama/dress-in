@@ -8,6 +8,6 @@ const DB_URI =
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (token) =>
   axios.create({
-    baseURL: "https://dress-in-api.herokuapp.com/api/v1",
+    baseURL: "https://dress-in-api.vercel.app/api/v1",
     Authorization: `Bearer ${token}`,
   });
