@@ -1,9 +1,10 @@
-import Api from './Api';
+import Api, { setToken } from "./Api";
 
 export const logInUser = async (emailAndPassword) => {
   try {
-    const res = await (await Api().post('/users/login', emailAndPassword)).data;
-    Api(res.token);
+    const res = await (await Api().post("/users/login", emailAndPassword)).data;
+    console.log("token0", res.token);
+    setToken(res.token); // Store the token
     const data = {
       user: res.data,
       token: res.token,
@@ -19,7 +20,7 @@ export const logInUser = async (emailAndPassword) => {
 
 export const signUpUser = async (credentials) => {
   try {
-    const res = await (await Api().post('/users/signup', credentials)).data;
+    const res = await (await Api().post("/users/signup", credentials)).data;
     Api(res.token);
     const data = {
       user: res.data,

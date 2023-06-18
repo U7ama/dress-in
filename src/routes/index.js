@@ -9,6 +9,7 @@ const Cart = lazy(() => import("pages/Cart"));
 const Signin = lazy(() => import("pages/Signin"));
 const Signup = lazy(() => import("pages/Signup"));
 const Page404 = lazy(() => import("pages/Page404"));
+const Account = lazy(() => import("pages/Account"));
 
 const RouteContainer = () => {
   return (
@@ -22,6 +23,7 @@ const RouteContainer = () => {
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
+        <Route exact path="/account" component={Account} />
         <Route path="/*" component={Page404} />
       </Switch>
     </Router>

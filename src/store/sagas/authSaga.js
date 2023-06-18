@@ -1,15 +1,15 @@
-import { call, put } from 'redux-saga/effects';
+import { call, put } from "redux-saga/effects";
 
-import { LOGIN, LOGOUT, SIGN_UP } from 'constant/types';
+import { LOGIN, LOGOUT, SIGN_UP } from "constant/types";
 import {
   authError,
   isAuthenticating,
   logInSuccess,
   logOutSuccess,
   signUpSuccess,
-} from 'store/actions/authActions';
-import { logInUser, signUpUser } from 'services/authService';
-import Api from 'services/Api';
+} from "store/actions/authActions";
+import { logInUser, signUpUser } from "services/authService";
+import Api from "services/Api";
 
 function* handleError(e) {
   yield put(isAuthenticating(false));
@@ -26,7 +26,7 @@ function* authSaga({ type, payload }) {
       try {
         yield initRequest();
         const res = yield call(logInUser, payload);
-        if (res.status === 'fail') {
+        if (res.status === "fail") {
           yield handleError(res.error);
         } else {
           yield put(logInSuccess(res));
@@ -40,8 +40,8 @@ function* authSaga({ type, payload }) {
       try {
         yield initRequest();
         const res = yield call(signUpUser, payload);
-        if (res.status === 'error') {
-          yield handleError('Invalid Singnin up');
+        if (res.status === "error") {
+          yield handleError("Invalid Singnin up");
         } else {
           yield put(signUpSuccess(res));
           yield put(isAuthenticating(false));

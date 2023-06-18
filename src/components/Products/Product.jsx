@@ -30,7 +30,7 @@ const Product = ({ product }) => {
           <h2 className="text-gray-900 title-font text-lg font-medium">
             {product.name}
           </h2>
-          <p className="mt-1 text-hot-pink">Rs{product.price}</p>
+          <p className="mt-1 text-hot-pink">${product.price}</p>
         </div>
       </div>
     </div>

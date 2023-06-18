@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-
+import { useHistory } from "react-router-dom";
 import { SearchIcon, ShoppingBag } from "icons/index";
 import { selectCurrentUser } from "store/selector/authSelector";
 import { navbarName } from "utils/textDisplay";
@@ -10,6 +10,7 @@ import { appStatus } from "store/selector/appSelector";
 import { selectCartItemsCount } from "store/selector/cartSelector";
 
 const Navbar = () => {
+  const history = useHistory();
   const [isOpen, setOpen] = useState(false);
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => selectCurrentUser(state));
@@ -44,7 +45,10 @@ const Navbar = () => {
         >
           <ul className="flex flex-col cursor-pointer space-y-3">
             <li className="tracking-wider font-bold cursor-pointer">
-              <button className="flex justify-center items-center hover:text-gray-500 font-bold">
+              <button
+                onClick={() => history.push("/account")}
+                className="flex justify-center items-center hover:text-gray-500 font-bold"
+              >
                 ACCOUNT
               </button>
             </li>

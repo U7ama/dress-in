@@ -93,7 +93,7 @@ const ProductDetails = ({ product }) => {
         </div>
         <div className="flex">
           <span className="title-font font-medium text-2xl text-hot-pink">
-            Rs{product.price}.00
+            ${product.price}.00
           </span>
           <BaseButton
             onClick={() => incQty(product)}
