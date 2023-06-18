@@ -10,7 +10,6 @@ const OrderDetails = ({ totalPrice }) => {
   const history = useHistory();
   const currentUser = useSelector((state) => selectCurrentUser(state));
   const cartItems = useSelector((state) => selectCartItems(state));
-  console.log("cartItems", cartItems);
   const [loading, setLoading] = useState(false);
   const hanldeCreateOrder = async () => {
     try {
@@ -24,9 +23,9 @@ const OrderDetails = ({ totalPrice }) => {
         1000
       );
       if (response?.session?.url) {
+        window.location.href = response?.session?.url;
         setLoading(false);
       }
-      window.location.href = response?.session?.url;
     } catch {
       setLoading(false);
       alert("Something Went Wrong");
